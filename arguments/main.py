@@ -4,6 +4,7 @@ __human_name__ = "arguments"
 
 # Add your code after this line
 def greet(name, template="Hello, <name>!"):
+    # the following code could be done with the .find function
     result = template.replace("<name>", name)
     return result
 
