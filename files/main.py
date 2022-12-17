@@ -5,7 +5,9 @@ import os
 from zipfile import ZipFile
 
 folder = os.path.join(os.getcwd(), "cache")  # Path for our directory
-zip_file = os.path.join(os.path.abspath("data.zip"))
+zip_file = os.path.join(
+    os.path.abspath("data.zip")
+)  # Absolute path for the data.zip file
 
 
 def clean_cache():
@@ -18,18 +20,22 @@ def clean_cache():
 
 
 def cache_zip(zip_file, cache_path):
+    # Simple extraction of all files with ZipFile module
     with ZipFile(zip_file) as zObject:
         zObject.extractall(cache_path)
 
 
 def cached_files():
-    file_list = []
-    for file in os.listdir(folder):
-        file_list.append(os.path.join(folder, file))
+    file_list = []  # Empty list to store all the paths
+    for file in os.listdir(folder):  # For loop going through the files
+        file_list.append(
+            os.path.join(folder, file)
+        )  # Adding the absolute path to the list
     return file_list
 
 
 def find_password(files_list):
+    # Simple loop to read the contents of every file until we find the word password and then return only the password.
     for file in files_list:
         with open(file, "r") as f:
             for line in f.readlines():
