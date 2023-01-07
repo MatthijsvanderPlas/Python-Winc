@@ -16,4 +16,4 @@ def test_flatten_dict():
         350,
         3.14,
     ]
-    # assert flatten_dict({"a": [{"inner_inner_a": 42}]}) == [42]
+    assert flatten_dict({"a": [{"inner_inner_a": 42}]}) == [42]
